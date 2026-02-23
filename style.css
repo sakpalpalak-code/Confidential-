@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+    height: 100vh;
+    overflow: hidden;
+    color: #333;
+}
+
+/* Page Containers */
+.page-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.page-container.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.page-container.hidden {
+    display: none;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #d81b60;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Page 1 Specifics */
+.content-box {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    z-index: 20;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    height: 60px;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.yes {
+    background-color: #ff4d6d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.yes:hover {
+    transform: scale(1.1);
+}
+
+.no {
+    background-color: #ffffff;
+    color: #ff4d6d;
+    border: 2px solid #ff4d6d;
+    position: absolute;
+    left: calc(50% + 10px); /* Positioned next to YES initially */
+}
+
+/* Page 2 Specifics */
+.photo-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.reveal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 182, 193, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.reveal-content {
+    text-align: center;
+    z-index: 20;
+    padding: 20px;
+}
+
+.reveal-content h1 {
+    color: #ffffff;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.reveal-content p {
+    font-family: 'Dancing Script', cursive;
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+
+.glowing-text {
+    text-shadow: 0 0 10px rgba(255, 77, 109, 0.8), 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Music Button */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.heart, .sparkle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart {
+    color: rgba(255, 77, 109, 0.6);
+    font-size: 1.5rem;
+    animation: floatUp linear forwards;
+}
+
+.sparkle {
+    color: #fff;
+    font-size: 1.2rem;
+    animation: twinkle linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+    100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+}
+
+@keyframes twinkle {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.5); opacity: 1; }
+    100% { transform: scale(0.5); opacity: 0; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    h1 { font-size: 2.5rem; }
+    .reveal-content h1 { font-size: 2.8rem; }
+    .reveal-content p { font-size: 2rem; }
+    .buttons { flex-direction: column; align-items: center; gap: 10px; height: auto; }
+    .no { position: relative; left: 0; margin-top: 10px; }
+  }
