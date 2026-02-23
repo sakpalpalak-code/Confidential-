@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn">🎵 Play Music</button>
+
+    <div id="page-1" class="page-container active">
+        <div class="content-box">
+            <h1>Will you be mine forever? 💖</h1>
+            <div class="buttons">
+                <button id="yes-btn" class="btn yes">✔ YES</button>
+                <button id="no-btn" class="btn no">✖ NO</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-2" class="page-container hidden">
+        <div class="photo-background">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83164ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Us" class="reveal-img">
+            <div class="overlay"></div>
+        </div>
+        <div class="reveal-content">
+            <h1 class="glowing-text">You just made me the happiest person alive 💞</h1>
+            <p class="glowing-text">I love you forever.</p>
+        </div>
+    </div>
+
+    <div id="animation-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
